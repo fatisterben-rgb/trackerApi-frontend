@@ -1,0 +1,199 @@
+.organizations-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .organizations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .header-icon {
+    font-size: 2rem !important;
+    color: #432E54;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 300px;
+  }
+  
+  .search-icon {
+    color: #666;
+    margin-right: 0.5rem;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  .filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .organizations-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #432E54;
+    margin: 0.5rem 0;
+  }
+  
+  .stat-change {
+    font-size: 0.9rem;
+  }
+  
+  .stat-change.positive {
+    color: #4CAF50;
+  }
+  
+  .organizations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .organization-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .org-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .more-icon {
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .org-content {
+    margin-bottom: 1.5rem;
+  }
+  
+  .org-info p {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+  
+  .org-progress {
+    margin: 1rem 0;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: #432E54;
+    transition: width 0.3s ease;
+  }
+  
+  .progress-text {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .org-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .view-btn, .projects-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-btn {
+    background: #432E54;
+    color: white;
+  }
+  
+  .projects-btn {
+    background: #f0f0f0;
+    color: #333;
+  }
+  
+  .view-btn:hover {
+    background: #4B4376;
+  }
+  
+  .projects-btn:hover {
+    background: #e0e0e0;
+  }
+  
+  @media (max-width: 768px) {
+    .organizations-header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .header-left {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .search-bar {
+      width: 100%;
+    }
+  
+    .organizations-stats {
+      grid-template-columns: 1fr;
+    }
+  
+    .organizations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
