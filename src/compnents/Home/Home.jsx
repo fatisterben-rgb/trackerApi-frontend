@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
 import GroupIcon from "@mui/icons-material/Group";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrackChangesIcon from "@mui/icons-material/TrackChanges";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AssessmentIcon from "@mui/icons-material/Assessment";
