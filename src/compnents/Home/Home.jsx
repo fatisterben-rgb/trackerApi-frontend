@@ -4,40 +4,39 @@ import GroupIcon from "@mui/icons-material/Group";
 import TrackChangesIcon from "@mui/icons-material/TrackChanges";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [signupData, setSignupData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  // const [isLoginOpen, setIsLoginOpen] = useState(false);
+  // const [isSignupOpen, setIsSignupOpen] = useState(false);
+  // const [loginData, setLoginData] = useState({ email: "", password: "" });
+  // const [signupData, setSignupData] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   confirmPassword: "",
+  // });
 
-  const switchToSignup = () => {
-    setIsLoginOpen(false);
-    setIsSignupOpen(true);
-  };
+  // const switchToSignup = () => {
+  //   setIsLoginOpen(false);
+  //   setIsSignupOpen(true);
+  // };
 
-  const switchToLogin = () => {
-    setIsSignupOpen(false);
-    setIsLoginOpen(true);
-  };
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login data:", loginData);
-    setIsLoginOpen(false);
-  };
+  // const switchToLogin = () => {
+  //   setIsSignupOpen(false);
+  //   setIsLoginOpen(true);
+  // };
+  // const handleLoginSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Login data:", loginData);
+  //   setIsLoginOpen(false);
+  // };
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    console.log("Signup data:", signupData);
-    setIsSignupOpen(false);
-  };
+  // const handleSignupSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Signup data:", signupData);
+  //   setIsSignupOpen(false);
+  // };
   return (
     <>
       <div className="navbar">
@@ -63,19 +62,19 @@ const Home = () => {
         </div>
         <div className="btns">
           <div className="login-btn">
-            <button className="login" onClick={() => setIsLoginOpen(true)}>
-              Login
-            </button>
+            <NavLink to="/login">
+              <button className="login">Login</button>
+            </NavLink>
           </div>
           <div className="signup-btn">
-            <button className="signup" onClick={() => setIsSignupOpen(true)}>
-              Signup
-            </button>
+            <NavLink to="/signup">
+              <button className="signup">Signup</button>
+            </NavLink>
           </div>
         </div>
       </div>
       {/* Login Modal */}
-      {isLoginOpen && (
+      {/* {isLoginOpen && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header">
@@ -120,10 +119,10 @@ const Home = () => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Signup Modal */}
-      {isSignupOpen && (
+      {/* {isSignupOpen && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header">
@@ -193,7 +192,7 @@ const Home = () => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
       <div className="dashboard">
         <h1 className="welcome-title">Welcome JOHN</h1>
         <div className="dashboard-grid">

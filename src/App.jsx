@@ -7,12 +7,16 @@ import Report from "./compnents/Report/Report";
 import { Routes, Route } from "react-router-dom";
 import TrackedOrganizations from "./compnents/TrackedOrg/TrackedOrg";
 import ManageOrganizations from "./compnents/ManageOrg/ManageOrg";
+import Login from "./compnents/Login/Login";
+import Signup from "./compnents/Signup/Signup";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/report" element={<Report />}></Route>
