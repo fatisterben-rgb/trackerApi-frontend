@@ -10,43 +10,24 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    orgName: "", // for organization signup
+    orgName: "",
   });
   const [userType, setUserType] = useState("employee");
-  const [error, setError] = useState("");
 
-  const handleSignupSubmit = async (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
-    setError("");
 
     if (signupData.password !== signupData.confirmPassword) {
-      setError("Passwords don't match");
+      alert("Passwords don't match");
       return;
     }
 
-    try {
-      const response = await fetch(`/api/auth/${userType}/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signupData),
-      });
+    // Log the signup data
+    console.log("Signup Data:", signupData);
+    console.log("User Type:", userType);
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Signup failed");
-      }
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userType", userType);
-      localStorage.setItem("userData", JSON.stringify(data.user));
-
-      navigate("/"); // Redirect to home page after successful signup
-    } catch (error) {
-      setError(error.message);
-    }
+    // Navigate to home page
+    navigate("/");
   };
 
   return (
@@ -76,6 +57,7 @@ const Signup = () => {
               <input
                 type="text"
                 required
+                placeholder="Enter organization name"
                 value={signupData.orgName}
                 onChange={(e) =>
                   setSignupData({ ...signupData, orgName: e.target.value })
@@ -88,6 +70,7 @@ const Signup = () => {
             <input
               type="text"
               required
+              placeholder="Enter your full name"
               value={signupData.name}
               onChange={(e) =>
                 setSignupData({ ...signupData, name: e.target.value })
@@ -99,6 +82,7 @@ const Signup = () => {
             <input
               type="email"
               required
+              placeholder="Enter your email"
               value={signupData.email}
               onChange={(e) =>
                 setSignupData({ ...signupData, email: e.target.value })
@@ -110,6 +94,7 @@ const Signup = () => {
             <input
               type="password"
               required
+              placeholder="Enter password"
               value={signupData.password}
               onChange={(e) =>
                 setSignupData({ ...signupData, password: e.target.value })
@@ -121,6 +106,7 @@ const Signup = () => {
             <input
               type="password"
               required
+              placeholder="Confirm password"
               value={signupData.confirmPassword}
               onChange={(e) =>
                 setSignupData({
@@ -130,7 +116,6 @@ const Signup = () => {
               }
             />
           </div>
-          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="submit-btn">
             Sign Up
           </button>

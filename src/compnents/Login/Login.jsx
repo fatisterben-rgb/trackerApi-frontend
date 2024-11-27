@@ -7,35 +7,13 @@ const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [userType, setUserType] = useState("employee");
-  const [error, setError] = useState("");
 
-  const handleLoginSubmit = async (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-    setError("");
-
-    try {
-      const response = await fetch(`/api/auth/${userType}/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed");
-      }
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userType", userType);
-      localStorage.setItem("userData", JSON.stringify(data.user));
-
-      navigate("/"); // Redirect to home page after successful login
-    } catch (error) {
-      setError(error.message);
-    }
+    // Just log the data and navigate to home
+    console.log("Login Data:", loginData);
+    console.log("User Type:", userType);
+    navigate("/");
   };
 
   return (
@@ -64,6 +42,7 @@ const Login = () => {
             <input
               type="email"
               required
+              placeholder="Enter your email"
               value={loginData.email}
               onChange={(e) =>
                 setLoginData({ ...loginData, email: e.target.value })
@@ -75,13 +54,13 @@ const Login = () => {
             <input
               type="password"
               required
+              placeholder="Enter your password"
               value={loginData.password}
               onChange={(e) =>
                 setLoginData({ ...loginData, password: e.target.value })
               }
             />
           </div>
-          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="submit-btn">
             Login
           </button>
