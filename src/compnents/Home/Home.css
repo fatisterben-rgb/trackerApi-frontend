@@ -271,3 +271,63 @@
     transform: translateY(0);
   }
 }
+
+/* Organization Dashboard specific styles */
+.employees-card {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.projects-card {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.manage-employees-card {
+  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.org-reports-card {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+/* Common card styles (if not already present) */
+.card {
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.stats {
+  margin-top: 15px;
+}
+
+.stats p {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats span {
+  font-weight: bold;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  opacity: 0.8;
+}
