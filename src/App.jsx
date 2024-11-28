@@ -9,6 +9,8 @@ import TrackedOrganizations from "./compnents/TrackedOrg/TrackedOrg";
 import ManageOrganizations from "./compnents/ManageOrg/ManageOrg";
 import Login from "./compnents/Login/Login";
 import Signup from "./compnents/Signup/Signup";
+import Organization from "./compnents/Organization/Organization";
+import Employee from "./compnents/Employee/Employee";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="joined" element={<OrganizationsJoined />}></Route>
         <Route path="/track" element={<TrackedOrganizations />}></Route>
         <Route path="/manage" element={<ManageOrganizations />}></Route>
+        <Route path="/organization" element={<Organization />}></Route>
+        <Route path="/employee" element={<Employee />}></Route>
       </Routes>
     </>
   );
