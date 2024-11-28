@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Report.css";
 import { NavLink } from "react-router-dom";
 import {
@@ -9,8 +9,6 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  LineChart,
-  Line,
   PieChart,
   Pie,
   Cell,
@@ -21,36 +19,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 
 const Reports = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [signupData, setSignupData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const switchToSignup = () => {
-    setIsLoginOpen(false);
-    setIsSignupOpen(true);
-  };
-
-  const switchToLogin = () => {
-    setIsSignupOpen(false);
-    setIsLoginOpen(true);
-  };
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login data:", loginData);
-    setIsLoginOpen(false);
-  };
-
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    console.log("Signup data:", signupData);
-    setIsSignupOpen(false);
-  };
   // Sample data for charts
   const monthlyData = [
     { name: "Jan", hours: 45 },
@@ -103,42 +71,24 @@ const Reports = () => {
 
   return (
     <>
-      <div className="navbar">
-        <div className="navbar">
-          <div className="logo">
-            <h1>logo</h1>
-          </div>
-          <div className="components">
-            <NavLink className="no-link-style" to="/">
-              <div className="home">
-                <p>Home</p>
-              </div>
-            </NavLink>
-            <NavLink className="no-link-style" to="/about">
-              <div className="about">
-                <p>About us</p>
-              </div>
-            </NavLink>
-            <NavLink className="no-link-style" to="/contact">
-              <div className="contact">
-                <p>Contact Us</p>
-              </div>
-            </NavLink>
-          </div>
-          <div className="btns">
-            <div className="login-btn">
-              <button className="login" onClick={() => setIsLoginOpen(true)}>
-                Login
-              </button>
-            </div>
-            <div className="signup-btn">
-              <button className="signup" onClick={() => setIsSignupOpen(true)}>
-                Signup
-              </button>
-            </div>
-          </div>
+      <nav className="navbar">
+        <div className="logo">
+          <h1>logo</h1>
         </div>
-      </div>
+        <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </div>
+        <div className="auth-buttons">
+          <NavLink className="no-links" to="/login">
+            <button className="login1-btn">Login</button>
+          </NavLink>
+          <NavLink className="no-links" to="/signup">
+            <button className="signup1-btn">Signup</button>
+          </NavLink>
+        </div>
+      </nav>
 
       <div className="reports-container">
         <div className="reports-header">

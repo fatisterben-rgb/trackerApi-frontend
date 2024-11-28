@@ -1,333 +1,177 @@
-* {
-  margin: 0;
-  padding: 0;
-  border: border-box;
-}
-.navbar {
-  background-color: #432e54;
-  height: 10vh;
-  width: 100%;
-  display: flex;
-}
-.logo {
-  margin-left: 4rem;
-  margin-right: 5rem;
-  color: white;
-}
-.components {
-  height: 7vh;
-  width: 30%;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-}
-.no-link-style {
-  text-decoration: none;
-  color: white;
-}
-.btns {
-  /* background-color: red; */
-  height: 7vh;
-  width: 25vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-  margin-left: 28rem;
-}
-.login-btn,
-.signup-btn {
-  height: 6vh;
-  width: 8vh;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-.login,
-.signup {
-  background-color: #4b4376;
-  height: 6vh;
-  width: 8vh;
-  color: white;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-.sidebar {
-  margin-top: 2rem;
-  margin-left: 1rem;
-  border-radius: 10px;
-  height: 100vh;
-  width: 210vh;
-  background-color: #e8bcb9;
-}
-
-.dashboard {
-  padding: 2rem;
-  background-color: #f0f2f5;
+.landing-container {
+  background: #e8f4f8;
   min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.welcome-title {
-  color: #1a2b3c;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 8px 8px 15px rgba(163, 177, 198, 0.6),
-    -8px -8px 15px rgba(255, 255, 255, 0.5);
-}
-
-.card-content {
-  padding: 1rem;
-}
-
-.card h2 {
-  color: #1a2b3c;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.progress-circle {
-  width: 100px;
-  height: 100px;
-  background: #ccc;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem auto;
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.1),
-    inset -4px -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.stats {
-  margin-top: 1rem;
-}
-
-.stats p {
+.landing-nav {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
-  color: #666;
-}
-
-.stats span {
-  color: #1a2b3c;
-  font-weight: bold;
-}
-
-.subtitle {
-  color: #666;
-  font-size: 0.9rem;
-}
-.card-header {
-  display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.card-icon {
-  color: #432e54;
-  font-size: 2rem !important;
-}
-
-/* Optional hover effect for cards */
-.card {
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Make icons slightly larger on hover */
-.card:hover .card-icon {
-  transform: scale(1.1);
-  transition: transform 0.2s ease-in-out;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal {
-  background: white;
-  padding: 2rem;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
 }
 
-.modal-header {
+.nav-dots {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  gap: 6px;
 }
 
-.close-icon {
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.nav-search input {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  width: 200px;
+}
+
+.nav-button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  color: #666;
-  transition: color 0.3s ease;
 }
 
-.close-icon:hover {
-  color: #000;
+.landing-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
+.landing-header h1 {
+  font-size: 2.5em;
   color: #333;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
+.tracker-section {
+  position: relative;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-group input:focus {
-  outline: none;
-  border-color: #432e54;
-  box-shadow: 0 0 0 2px rgba(67, 46, 84, 0.2);
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-.account {
-  text-align: center;
-  margin-top: 1rem;
+
+.cloud {
+  position: absolute;
+  color: white;
+  font-size: 3em !important;
+}
+
+.cloud1 { top: 20%; left: 20%; }
+.cloud2 { top: 40%; right: 25%; }
+.cloud3 { top: 60%; left: 30%; }
+
+.gear {
+  position: absolute;
   color: #666;
+  font-size: 2em !important;
+  animation: rotate 10s linear infinite;
 }
 
-.switch-link {
-  color: #432e54;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+.gear1 { top: 30%; left: 40%; }
+.gear2 { top: 50%; right: 35%; }
+.gear3 { top: 20%; right: 45%; }
+
+.list-icon {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  font-size: 2.5em !important;
+  color: #4a90e2;
 }
 
-.switch-link:hover {
-  color: #4b4376;
-}
-.submit-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #432e54;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-  background-color: #4b4376;
-}
-
-/* Animation for modal */
-.modal {
-  animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Organization Dashboard specific styles */
-.employees-card {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-}
-
-.projects-card {
-  background: linear-gradient(135deg, #2196F3, #1976D2);
-}
-
-.manage-employees-card {
-  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-}
-
-.org-reports-card {
-  background: linear-gradient(135deg, #FF9800, #F57C00);
-}
-
-/* Common card styles (if not already present) */
-.card {
-  border-radius: 10px;
-  padding: 20px;
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.stats {
-  margin-top: 15px;
-}
-
-.stats p {
-  margin: 8px 0;
+.tracker-circle {
+  background: linear-gradient(135deg, #432E54 0%, #4B4376 100%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+  z-index: 2;
 }
 
-.stats span {
-  font-weight: bold;
+.tracker-circle h2 {
+  text-align: center;
+  font-size: 1.5em;
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+  padding: 0 50px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  color: #333;
   margin-bottom: 15px;
 }
 
-.card-icon {
-  margin-right: 10px;
-  font-size: 24px;
+.feature-card p {
+  color: #666;
+  margin-bottom: 20px;
 }
 
-.subtitle {
-  margin-top: 10px;
-  opacity: 0.8;
+.feature-button {
+  background: linear-gradient(135deg, #432E54 0%, #4B4376 100%);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.feature-button:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .landing-header h1 {
+    font-size: 2em;
+  }
+
+  .nav-search input {
+    width: 150px;
+  }
 }

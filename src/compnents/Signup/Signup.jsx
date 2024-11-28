@@ -1,131 +1,207 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Signup.css";
-import { useNavigate, Link } from "react-router-dom";
-import CloseIcon from "@mui/icons-material/Close";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
+import BusinessIcon from "@mui/icons-material/Business";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [signupData, setSignupData] = useState({
-    name: "",
+  const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
-    orgName: "",
+    organizationType: "employee",
   });
-  const [userType, setUserType] = useState("employee");
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
+  const [errors, setErrors] = useState({});
 
-    if (signupData.password !== signupData.confirmPassword) {
-      alert("Passwords don't match");
-      return;
+  const validateForm = () => {
+    let tempErrors = {};
+
+    // Validate full name
+    if (!formData.fullName.trim()) {
+      tempErrors.fullName = "Full name is required";
     }
 
-    // Log the signup data
-    console.log("Signup Data:", signupData);
-    console.log("User Type:", userType);
+    // Validate email
+    if (!formData.email) {
+      tempErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      tempErrors.email = "Email is invalid";
+    }
 
-    // Navigate to home page
-    navigate("/");
+    // Validate password
+    if (!formData.password) {
+      tempErrors.password = "Password is required";
+    } else if (formData.password.length < 6) {
+      tempErrors.password = "Password must be at least 6 characters";
+    }
+
+    // Validate confirm password
+    if (!formData.confirmPassword) {
+      tempErrors.confirmPassword = "Please confirm your password";
+    } else if (formData.password !== formData.confirmPassword) {
+      tempErrors.confirmPassword = "Passwords do not match";
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log("Signup attempt with:", formData);
+      navigate("/login");
+    }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-card">
         <div className="signup-header">
-          <h2>Sign Up</h2>
-          <Link to="/">
-            <CloseIcon className="close-icon" />
-          </Link>
+          <h1>Create Account</h1>
+          <p>Please fill in the details to get started</p>
         </div>
-        <form onSubmit={handleSignupSubmit}>
-          <div className="form-group">
-            <label>Register As</label>
-            <select
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              className="user-type-select"
-            >
-              <option value="employee">Employee</option>
-              <option value="organization">Organization</option>
-            </select>
-          </div>
-          {userType === "organization" && (
-            <div className="form-group">
-              <label>Organization Name</label>
-              <input
-                type="text"
-                required
-                placeholder="Enter organization name"
-                value={signupData.orgName}
-                onChange={(e) =>
-                  setSignupData({ ...signupData, orgName: e.target.value })
-                }
-              />
-            </div>
-          )}
+
+        <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-group">
             <label>Full Name</label>
-            <input
-              type="text"
-              required
-              placeholder="Enter your full name"
-              value={signupData.name}
-              onChange={(e) =>
-                setSignupData({ ...signupData, name: e.target.value })
-              }
-            />
+            <div className="input-wrapper">
+              <PersonOutlineIcon className="field-icon" />
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                value={formData.fullName}
+                onChange={(e) => {
+                  setFormData({ ...formData, fullName: e.target.value });
+                  if (errors.fullName) setErrors({ ...errors, fullName: "" });
+                }}
+                className={errors.fullName ? "error-input" : ""}
+                required
+              />
+            </div>
+            {errors.fullName && (
+              <span className="error-message">{errors.fullName}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Email</label>
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              value={signupData.email}
-              onChange={(e) =>
-                setSignupData({ ...signupData, email: e.target.value })
-              }
-            />
+            <div className="input-wrapper">
+              <EmailIcon className="field-icon" />
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  if (errors.email) setErrors({ ...errors, email: "" });
+                }}
+                className={errors.email ? "error-input" : ""}
+                required
+              />
+            </div>
+            {errors.email && (
+              <span className="error-message">{errors.email}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Password</label>
-            <input
-              type="password"
-              required
-              placeholder="Enter password"
-              value={signupData.password}
-              onChange={(e) =>
-                setSignupData({ ...signupData, password: e.target.value })
-              }
-            />
+            <div className="input-wrapper">
+              <LockIcon className="field-icon" />
+              <input
+                type="password"
+                placeholder="Create password (min. 6 characters)"
+                value={formData.password}
+                onChange={(e) => {
+                  setFormData({ ...formData, password: e.target.value });
+                  if (errors.password) setErrors({ ...errors, password: "" });
+                }}
+                className={errors.password ? "error-input" : ""}
+                required
+              />
+            </div>
+            {errors.password && (
+              <span className="error-message">{errors.password}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Confirm Password</label>
-            <input
-              type="password"
-              required
-              placeholder="Confirm password"
-              value={signupData.confirmPassword}
-              onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  confirmPassword: e.target.value,
-                })
-              }
-            />
+            <div className="input-wrapper">
+              <LockIcon className="field-icon" />
+              <input
+                type="password"
+                placeholder="Confirm password"
+                value={formData.confirmPassword}
+                onChange={(e) => {
+                  setFormData({ ...formData, confirmPassword: e.target.value });
+                  if (errors.confirmPassword)
+                    setErrors({ ...errors, confirmPassword: "" });
+                }}
+                className={errors.confirmPassword ? "error-input" : ""}
+                required
+              />
+            </div>
+            {errors.confirmPassword && (
+              <span className="error-message">{errors.confirmPassword}</span>
+            )}
           </div>
-          <Link to="/login" className="switch-link">
-            <button type="submit" className="submit-btn">
-              Sign Up
-            </button>
-          </Link>
-          <p className="account">
+
+          <div className="form-group">
+            <label>Account Type</label>
+            <div className="account-type-selector">
+              <BusinessIcon className="type-icon" />
+              <div className="radio-group">
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="organizationType"
+                    value="employee"
+                    checked={formData.organizationType === "employee"}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        organizationType: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                  <span>Employee</span>
+                </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="organizationType"
+                    value="organization"
+                    checked={formData.organizationType === "organization"}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        organizationType: e.target.value,
+                      })
+                    }
+                  />
+                  <span>Organization</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" className="signup-btn">
+            Create Account
+          </button>
+
+          <p className="login-prompt">
             Already have an account?{" "}
-            <Link to="/login" className="switch-link">
-              Login
-            </Link>
+            <NavLink to="/login" className="login-link">
+              Sign in
+            </NavLink>
           </p>
         </form>
       </div>

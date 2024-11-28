@@ -9,40 +9,24 @@ import { NavLink } from "react-router-dom";
 const Organization = () => {
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
         <div className="logo">
           <h1>logo</h1>
         </div>
-        <div className="components">
-          <NavLink className="no-link-style" to="/">
-            <div className="home">
-              <p>Home</p>
-            </div>
+        <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </div>
+        <div className="auth-buttons">
+          <NavLink className="no-links" to="/login">
+            <button className="login1-btn">Login</button>
           </NavLink>
-          <NavLink className="no-link-style" to="/about">
-            <div className="about">
-              <p>About us</p>
-            </div>
-          </NavLink>
-          <NavLink className="no-link-style" to="/contact">
-            <div className="contact">
-              <p>Contact Us</p>
-            </div>
+          <NavLink className="no-links" to="/signup">
+            <button className="signup1-btn">Signup</button>
           </NavLink>
         </div>
-        <div className="btns">
-          <div className="login-btn">
-            <NavLink to="/login">
-              <button className="login">Login</button>
-            </NavLink>
-          </div>
-          <div className="signup-btn">
-            <NavLink to="/signup">
-              <button className="signup">Signup</button>
-            </NavLink>
-          </div>
-        </div>
-      </div>
+      </nav>
 
       <div className="dashboard">
         <h1 className="welcome-title">Welcome TechCorp (Organization)</h1>

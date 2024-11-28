@@ -2,43 +2,13 @@ import React, { useState } from "react";
 import "./OrgJoined.css";
 import GroupIcon from "@mui/icons-material/Group";
 import SearchIcon from "@mui/icons-material/Search";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import CloseIcon from "@mui/icons-material/Close";
 import { NavLink } from "react-router-dom";
 
 const OrganizationsJoined = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [signupData, setSignupData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const switchToSignup = () => {
-    setIsLoginOpen(false);
-    setIsSignupOpen(true);
-  };
 
-  const switchToLogin = () => {
-    setIsSignupOpen(false);
-    setIsLoginOpen(true);
-  };
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login data:", loginData);
-    setIsLoginOpen(false);
-  };
-
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    console.log("Signup data:", signupData);
-    setIsSignupOpen(false);
-  };
   // Sample organization data
   const organizations = [
     {
@@ -77,160 +47,24 @@ const OrganizationsJoined = () => {
 
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
         <div className="logo">
           <h1>logo</h1>
         </div>
-        <div className="components">
-          <NavLink className="no-link-style" to="/">
-            <div className="home">
-              <p>Home</p>
-            </div>
+        <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </div>
+        <div className="auth-buttons">
+          <NavLink className="no-links" to="/login">
+            <button className="login1-btn">Login</button>
           </NavLink>
-          <NavLink className="no-link-style" to="/about">
-            <div className="about">
-              <p>About us</p>
-            </div>
-          </NavLink>
-          <NavLink className="no-link-style" to="/contact">
-            <div className="contact">
-              <p>Contact Us</p>
-            </div>
+          <NavLink className="no-links" to="/signup">
+            <button className="signup1-btn">Signup</button>
           </NavLink>
         </div>
-        <div className="btns">
-          <div className="login-btn">
-            <button className="login" onClick={() => setIsLoginOpen(true)}>
-              Login
-            </button>
-          </div>
-          <div className="signup-btn">
-            <button className="signup" onClick={() => setIsSignupOpen(true)}>
-              Signup
-            </button>
-          </div>
-        </div>
-      </div>
-      {/* Login Modal */}
-      {isLoginOpen && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-header">
-              <h2>Login</h2>
-              <CloseIcon
-                className="close-icon"
-                onClick={() => setIsLoginOpen(false)}
-              />
-            </div>
-            <form onSubmit={handleLoginSubmit}>
-              <div className="form-group">
-                <label>Email</label>
-                <input
-                  type="email"
-                  required
-                  value={loginData.email}
-                  onChange={(e) =>
-                    setLoginData({ ...loginData, email: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  required
-                  value={loginData.password}
-                  onChange={(e) =>
-                    setLoginData({ ...loginData, password: e.target.value })
-                  }
-                />
-              </div>
-              <button type="submit" className="submit-btn">
-                Login
-              </button>
-              <p className="account">
-                Don't have an account?{" "}
-                <span onClick={switchToSignup} className="switch-link">
-                  Sign up
-                </span>
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Signup Modal */}
-      {isSignupOpen && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-header">
-              <h2>Sign Up</h2>
-              <CloseIcon
-                className="close-icon"
-                onClick={() => setIsSignupOpen(false)}
-              />
-            </div>
-            <form onSubmit={handleSignupSubmit}>
-              <div className="form-group">
-                <label>Full Name</label>
-                <input
-                  type="text"
-                  required
-                  value={signupData.name}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, name: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Email</label>
-                <input
-                  type="email"
-                  required
-                  value={signupData.email}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, email: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  required
-                  value={signupData.password}
-                  onChange={(e) =>
-                    setSignupData({ ...signupData, password: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Confirm Password</label>
-                <input
-                  type="password"
-                  required
-                  value={signupData.confirmPassword}
-                  onChange={(e) =>
-                    setSignupData({
-                      ...signupData,
-                      confirmPassword: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <button type="submit" className="submit-btn">
-                Sign Up
-              </button>
-              <p className="account">
-                Already have an account?{" "}
-                <span onClick={switchToLogin} className="switch-link">
-                  Login
-                </span>
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
+      </nav>
 
       <div className="organizations-container">
         <div className="organizations-header">

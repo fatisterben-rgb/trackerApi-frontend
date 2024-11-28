@@ -9,107 +9,90 @@ import { NavLink } from "react-router-dom";
 const Employee = () => {
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
         <div className="logo">
           <h1>logo</h1>
         </div>
-        <div className="components">
-          <NavLink className="no-link-style" to="/">
-            <div className="home">
-              <p>Home</p>
-            </div>
+        <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </div>
+        <div className="auth-buttons">
+          <NavLink className="no-links" to="/login">
+            <button className="login1-btn">Login</button>
           </NavLink>
-          <NavLink className="no-link-style" to="/about">
-            <div className="about">
-              <p>About us</p>
-            </div>
-          </NavLink>
-          <NavLink className="no-link-style" to="/contact">
-            <div className="contact">
-              <p>Contact Us</p>
-            </div>
+          <NavLink className="no-links" to="/signup">
+            <button className="signup1-btn">Signup</button>
           </NavLink>
         </div>
-        <div className="btns">
-          <div className="login-btn">
-            <NavLink to="/login">
-              <button className="login">Login</button>
-            </NavLink>
-          </div>
-          <div className="signup-btn">
-            <NavLink to="/signup">
-              <button className="signup">Signup</button>
-            </NavLink>
-          </div>
-        </div>
-      </div>
+      </nav>
 
-      <div className="dashboard">
-        <h1 className="welcome-title">Welcome John (Employee)</h1>
-        <div className="dashboard-grid">
-          <NavLink className="no-link-style" to="/joined">
+      <div className="dashboard-container">
+        <h1 className="welcome-title">Welcome JOHN</h1>
+
+        <div className="cards-grid">
+          <NavLink className="no-links" to="/joined">
             <div className="card organization-card">
-              <div className="card-content">
-                <div className="card-header">
-                  <GroupIcon className="card-icon" />
-                  <h2>Organization Joined</h2>
-                </div>
-                <div className="progress-circle">
-                  <span className="progress-value">70%</span>
-                </div>
-                <p className="subtitle">Last month: 45%</p>
+              <div className="card-header">
+                <GroupIcon className="card-icon" />
+                <h2>Organization Joined</h2>
               </div>
+              <div className="progress-circle">
+                <div className="circle">
+                  <span className="percentage">70%</span>
+                </div>
+              </div>
+              <p className="last-month">Last month: 45%</p>
             </div>
           </NavLink>
 
-          <NavLink className="no-link-style" to="/track">
+          <NavLink className="no-links" to="/track">
             <div className="card tracked-card">
-              <div className="card-content">
-                <div className="card-header">
-                  <TrackChangesIcon className="card-icon" />
-                  <h2>Tracked Organizations</h2>
+              <div className="card-header">
+                <TrackChangesIcon className="card-icon" />
+                <h2>Tracked Organizations</h2>
+              </div>
+              <div className="stats">
+                <div className="stat-row">
+                  <span>Total Tracked:</span>
+                  <span className="value">5.5h</span>
                 </div>
-                <div className="stats">
-                  <p>
-                    Total Tracked: <span>5.5h</span>
-                  </p>
-                  <p>
-                    Total Hours: <span>9.5h</span>
-                  </p>
+                <div className="stat-row">
+                  <span>Total Hours:</span>
+                  <span className="value">9.5h</span>
                 </div>
               </div>
             </div>
           </NavLink>
 
-          <NavLink className="no-link-style" to="/manage">
+          <NavLink className="no-links" to="/manage">
             <div className="card manage-card">
-              <div className="card-content">
-                <div className="card-header">
-                  <SettingsIcon className="card-icon" />
-                  <h2>Manage Organizations</h2>
-                </div>
-                <p className="subtitle">Organizations</p>
+              <div className="card-header">
+                <SettingsIcon className="card-icon" />
+                <h2>Manage Organizations</h2>
               </div>
+              <p className="subtitle">Organizations</p>
             </div>
           </NavLink>
-
-          <NavLink className="no-link-style" to="/report">
+          <NavLink className="no-links" to="/report">
             <div className="card reports-card">
-              <div className="card-content">
-                <div className="card-header">
-                  <AssessmentIcon className="card-icon" />
-                  <h2>View Reports</h2>
+              <div className="card-header">
+                <AssessmentIcon className="card-icon" />
+                <h2>View Reports</h2>
+              </div>
+              <div className="stats">
+                <div className="stat-row">
+                  <span>Track Time:</span>
+                  <span className="value">03.0m</span>
                 </div>
-                <div className="stats">
-                  <p>
-                    Track Time: <span>03.0m</span>
-                  </p>
-                  <p>
-                    Total Hours: <span>03.0m</span>
-                  </p>
-                  <p>
-                    Total Tracked: <span>03.0m</span>
-                  </p>
+                <div className="stat-row">
+                  <span>Total Hours:</span>
+                  <span className="value">03.0m</span>
+                </div>
+                <div className="stat-row">
+                  <span>Total Tracked:</span>
+                  <span className="value">03.0m</span>
                 </div>
               </div>
             </div>
