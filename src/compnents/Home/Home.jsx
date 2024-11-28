@@ -12,10 +12,8 @@ const Home = () => {
         <div className="logo">
           <h1>logo</h1>
         </div>
-        <div className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About us</NavLink>
-          <NavLink to="/contact">Contact Us</NavLink>
+        <div className="nav-search">
+          <input type="text" placeholder="Search..." />
         </div>
         <div className="auth-buttons">
           <NavLink className="no-links" to="/login">
