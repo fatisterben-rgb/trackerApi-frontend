@@ -54,11 +54,11 @@ const Employee = () => {
                 <h2>Tracked Organizations</h2>
               </div>
               <div className="stats">
-                <div className="stat-row">
+                <div className="stat-rows">
                   <span>Total Tracked:</span>
                   <span className="value">5.5h</span>
                 </div>
-                <div className="stat-row">
+                <div className="stat-rows">
                   <span>Total Hours:</span>
                   <span className="value">9.5h</span>
                 </div>
@@ -82,15 +82,15 @@ const Employee = () => {
                 <h2>View Reports</h2>
               </div>
               <div className="stats">
-                <div className="stat-row">
+                <div className="stat-rows">
                   <span>Track Time:</span>
                   <span className="value">03.0m</span>
                 </div>
-                <div className="stat-row">
+                <div className="stat-rows">
                   <span>Total Hours:</span>
                   <span className="value">03.0m</span>
                 </div>
-                <div className="stat-row">
+                <div className="stat-rows">
                   <span>Total Tracked:</span>
                   <span className="value">03.0m</span>
                 </div>
